@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import registerImg from './images/img1.svg';
+import signInImg from "./images/img2.svg";
 import "./register.css"
 
 
 const Register = () => {
 
-    const [form,setForm] = React.useState(false);
+    const [form,setForm] = useState(false);
     let divClass = ["container"];
     if(form) {
       divClass.push('sign-up-mode');
@@ -66,7 +68,7 @@ const Register = () => {
               Sign up
             </button>
           </div>
-          <img src="./images/img2.svg" className="image" alt="" />
+          <img src={registerImg} className="image" alt="" />
         </div>
         <div className="panel right-panel">
           <div className="content">
@@ -79,7 +81,7 @@ const Register = () => {
               Sign in
             </button>
           </div>
-          <img src="src\components\auth\images\img2.svg" className="image" alt="" />
+          <img src={signInImg} className="image" alt="" />
         </div>
       </div>
     </div>

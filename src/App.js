@@ -15,7 +15,6 @@ function App() {
   return (
     <Router>
     <Fragment>
-      <Navbar />
       <Route exact path='/' component={Landing} />
       <section >
         <Switch>

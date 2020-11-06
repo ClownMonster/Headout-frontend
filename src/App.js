@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // component imports
 
 import Register from "./components/auth/Register";
-import Navbar from "./components/layout/Navbar";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Landing from "./components/layout/Landing"
@@ -15,7 +14,6 @@ function App() {
   return (
     <Router>
     <Fragment>
-      <Navbar />
       <Route exact path='/' component={Landing} />
       <section >
         <Switch>

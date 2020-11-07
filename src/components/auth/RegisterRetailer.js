@@ -38,22 +38,22 @@ const RegisterRetailer = () => {
      setForm(false)
     }
 
-    const [vendorName,vendorAddress, vendorEmail, vendorPassword, vendorGovRegsNumber,vendorNumber ] = registerData;
-    const [vendor_id , password] = signInData
+    const {vendorName,vendorAddress, vendorEmail, vendorPassword, vendorGovRegsNumber,vendorNumber} = registerData;
+    const {vendor_id , password} = signInData
 
     const onRegister = e => setRegisterData({ ...registerData, [e.target.name]: e.target.value })
     const onSingIn = e => setSignInData({ ...signInData, [e.target.name]: e.target.value })
 
     const onRegisterSubmit = e =>{
-      e.preventDefault();    
-      fetch('https://hackout.herokuapp.com/signup',{
-      }).then(
-        res => res.json()
-      ).then( )
-      .catch(
-        err=> console.error(err)
-      )
-    }
+      e.preventDefault();
+      console.log(registerData)
+      fetch('http://hackout.herokuapp.com/signup', { 
+        method: "POST",
+        body: JSON.stringify(registerData), 
+        headers:{ "Content-Type": "application/json" } })
+        .then(res => res.json())
+        .catch(error => console.error("Error:", error))
+        .then(response => console.log("Success:", response)); } 
 
     const onSignInSubmit = e => {
       e.preventDefault();

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.outer{
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.leftBar{
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(to right, #1A237E,#9575CD);
+    display: flex;
+    align-self: left;
+    justify-content: left;
+    align-self: left;
+}
+
+.mainArea{
+    width: 80%;
+    height: 100%;
+    background:white;
+    display: flex;
+    align-self: left;
+    float: right;
+    justify-content: left;
+    align-self: left;
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+    color: white;
+    font-family: 'Roboto Slab';
+    
+}
+
+.name > h3{
+    cursor: pointer;
+    transition: 3s ease-in-out;
+}

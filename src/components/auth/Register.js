@@ -7,7 +7,7 @@ import "./register.css"
 const Register = () => {
 
     const [form,setForm] = useState(false);
-    let divClass = ["container"];
+    let divClass = ["container1"];
     if(form) {
       divClass.push('sign-up-mode');
     }
@@ -18,7 +18,15 @@ const Register = () => {
    const signIn = () => { 
      setForm(false)
     }
+
+
+
+
+
+
      
+
+
 
 
   return (

@@ -90,7 +90,7 @@ const RegisterRetailer = () => {
         const res  = await axios.post("https://hackout.herokuapp.com/login",signInData,config)
         console.log(res)
         if(res.data.success === true){
-          localStorage.setItem('VendorId',signInData.vendor_id)
+          localStorage.setItem('vendorId',signInData.vendor_id)
           localStorage.setItem('log', true)
           setLoggedIn(true)
         }  

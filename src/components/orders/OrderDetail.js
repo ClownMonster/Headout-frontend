@@ -7,13 +7,15 @@ import SideBar from "./../layout/SideBar"
 const OrderDetail = ({match})=>{
   const [order,setOrder ] = useState({})
   const [show,setShow] = useState(false)
+  
 
   const order_id = match.params.id
-  
 
   useEffect(async ()=>{
     try{
-      const url  = `https://hackout.herokuapp.com/specificOrder?orderId=${order_id}&vendorId=2334333`
+      const vendorId = localStorage.getItem("vendorId");
+      console.log(vendorId)
+      const url  = `https://hackout.herokuapp.com/specificOrder?orderId=${order_id}&vendorId=${vendorId}`
       const res  = await axios.get(url)
       console.log(res.data)
       setOrder(res.data)
@@ -33,7 +35,7 @@ const OrderDetail = ({match})=>{
         <div><h1 className="tt">Phone Number : {order.orderPhoneNo}</h1></div>
         { order.orderProcessed === false && <div><h1 className="tt">Status: Not Processed</h1></div>}
         { order.orderProcessed === true && <div><h1 className="tt">Status: Processed</h1></div> }
-  {order.orderDetails.length > 0 ? order.orderDetails.map(item => <div className="itemd">
+  {order.orderDetails.length > 0 ? order.orderDetails.map(item => <div key={item.itemName}  className="itemd">
   <h1 className="tt">{item.itemName} : {item.itemQty} </h1>
   
   </div>) : <h1 className="tt">No items to display</h1>}

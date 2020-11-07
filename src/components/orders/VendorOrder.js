@@ -1,6 +1,7 @@
 import React, {useEffect,useState} from "react";
 import {Link} from 'react-router-dom';
 import SideBar from "./../layout/SideBar"
+import axios from "axios"
 
 import './vorder.css'
 import vlogo from './vcart.svg'
@@ -12,22 +13,20 @@ const VendorOder = ()=>{
   const [show,setShow] = useState(false)
   
 
-  useEffect( ()=>{
-    fetch('http://hackout.herokuapp.com/getAllOrders?vendorId=2334333',{
-    }).then(
-      res => res.json()
-    ).then(data => {
-    console.log(data) 
-    setResult(data)
-    for(var i =0; i<data.length;i++){
-        console.log(data[i]);
+
+
+  useEffect(async ()=>{
+    try{
+      const vendorId = localStorage.getItem("vendorId");
+      console.log(vendorId)
+      const url  = `http://hackout.herokuapp.com/getAllOrders?vendorId=${vendorId}`
+      const res  = await axios.get(url)
+      console.log(res.data)
+      setResult(res.data)
+      setShow(true)
+    }catch(err){
+      console.error(err)
     }
-
-
-    setShow(true) })
-    .catch(
-      err=> console.error(err)
-    )
     },[] )
 
  

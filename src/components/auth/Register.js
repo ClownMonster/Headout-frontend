@@ -37,7 +37,7 @@ const Register = () => {
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Vendor Id" />
             </div>
             <div className="input-field">
               <i className="fas fa-lock"></i>
@@ -45,11 +45,16 @@ const Register = () => {
             </div>
             <input type="submit" value="Login" className="btn solid" />
           </form>
+
           <form action="#" className="sign-up-form">
             <h2 className="title">Sign up</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Vendor Name" />
+            </div>
+            <div className="input-field">
+              <i className="fas fa-user"></i>
+              <input type="text" placeholder="Govt Reg No" />
             </div>
             <div className="input-field">
               <i className="fas fa-envelope"></i>

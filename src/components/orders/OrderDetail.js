@@ -1,5 +1,5 @@
 import React, { useEffect ,useState} from "react";
-import './vorder.css'
+import './orderdetails.css'
 import axios from "axios"
 import vlogo from './vcart.svg'
 import SideBar from "./../layout/SideBar"
@@ -9,27 +9,38 @@ const OrderDetail = ({match})=>{
   const [show,setShow] = useState(false)
 
   const order_id = match.params.id
-  const url = 
   
+
   useEffect(async ()=>{
     try{
-
       const url  = `https://hackout.herokuapp.com/specificOrder?orderId=${order_id}&vendorId=2334333`
       const res  = await axios.get(url)
+      console.log(res.data)
       setOrder(res.data)
       setShow(true)
     }catch(err){
       console.error(err)
     }
-  })
+  },[])
   return (
     <div className="outer">
      <SideBar/>
     <div className="mainArea">
         <div className="vlogo"><img src={vlogo}  alt="vlogo" /></div>
-        {show ?  <div>
-        <h1>{order.orderAddress}</h1>
-        </div> : <h1>Data Not fetched yet...</h1>}
+        <div className="orderDetailCard">{show ?  <div className="cd">
+        <div><h1 className="tt">Order Id : {order.orderId}</h1></div>
+        <div><h1 className="tt">Address : {order.orderAddress}</h1></div>
+        <div><h1 className="tt">Phone Number : {order.orderPhoneNo}</h1></div>
+        { order.orderProcessed === false && <div><h1 className="tt">Status: Not Processed</h1></div>}
+        { order.orderProcessed === true && <div><h1 className="tt">Status: Processed</h1></div> }
+        <div><h1 className="tt"></h1></div>
+        <div>
+  {order.orderDetails.length > 0 ? order.orderDetails.map(item => <div key={item.itemName}><h1>{item.itemName}</h1><h1>{item.itemQty}</h1></div>) : <h1>No items to display</h1>}
+        </div>
+        </div> 
+        : <h1>Fetching</h1>}
+        
+        </div>
        
     </div>
     </div>

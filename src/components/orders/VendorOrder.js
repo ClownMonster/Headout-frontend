@@ -44,7 +44,7 @@ const VendorOder = ()=>{
     { item.orderProcessed === false && <div>Not processed</div> }
     { item.orderProcessed === true && <div style={{color:'#2ecc71', fontWeight:'bolder'}}>processed</div> }
     <div>from : {item.orderPhoneNo}</div>
-    <Link to={`/${item.orderId}`}><button>View</button></Link>
+    <Link className="viewBtn" to={`/${item.orderId}`}>View</Link>
 
   </div>) : ""}</div>
     </div>

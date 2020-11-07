@@ -50,7 +50,7 @@ const VendorOder = ()=>{
     </div>
     <div className="mainArea">
         <div className="vlogo"><img src={vlogo}  alt="vlogo" /></div>
-  <div>{ show && result.length > 0 ? result.map(item =>  <h1>{item.orderId}</h1>) : ""}</div>
+  <div className="orderCardBox">{ show && result.length > 0 ? result.map(item =>  <div className="in" ><h2>Order No:{item.orderId}</h2></div>) : ""}</div>
     </div>
     </div>
   );

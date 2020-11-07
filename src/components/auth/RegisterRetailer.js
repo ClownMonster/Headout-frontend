@@ -39,11 +39,7 @@ const RegisterRetailer = () => {
         return <Redirect to="/dashboard-vendor" />
       }
   
-    
-
-
-
-    
+  
     let divClass = ["container1"];
     if(form) {
       divClass.push('sign-up-mode');
@@ -71,7 +67,12 @@ const RegisterRetailer = () => {
           headers: {
           'content-type': 'application/json'
         }}
-        const res  = await axios.post("https://hackout.herokuapp.com/signup",registerData,config)
+        const res  = await axios.post("http://a304e7e6341f.ngrok.io/signup",registerData,config)
+        if(res.data.success === true){
+          localStorage.setItem('vendorId',registerData.vendorId)
+          localStorage.setItem('log', true)
+          setLoggedIn(true)
+        }  
       }catch(err){
         console.error(err)
       }}
@@ -87,7 +88,7 @@ const RegisterRetailer = () => {
           headers: {
           'content-type': 'application/json'
         }}
-        const res  = await axios.post("https://hackout.herokuapp.com/login",signInData,config)
+        const res  = await axios.post("http://a304e7e6341f.ngrok.io/login",signInData,config)
         console.log(res)
         if(res.data.success === true){
           localStorage.setItem('vendorId',signInData.vendor_id)

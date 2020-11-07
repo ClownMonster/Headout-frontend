@@ -24,6 +24,13 @@ const OrderDetail = ({match})=>{
       console.error(err)
     }
   },[])
+
+  const dispatch =async (no) =>{
+    const body = `your order with Order ID ${order_id} has been dispatched`
+    const sms_url = `https://hackout-helpline.herokuapp.com/sendsms?body=${body}&number=${no}`
+    const response  = await axios.get(sms_url)
+    console.log(response.data)
+  }
   return (
     <div className="outer">
      <SideBar/>
@@ -39,8 +46,7 @@ const OrderDetail = ({match})=>{
     <div key={item.itemName}  className="itemd">
       <h1 className="tt">{item.itemName} : {item.itemQty} </h1>
     </div>) : <h1 className="tt">No items to display</h1>}
-    <div className="dispatchBtn"><button>Dispatch</button></div>
-
+    <div onClick = {() => dispatch(order.orderPhoneNo)} className="dispatchBtn"><button>Dispatch</button></div>
   </div>
   
         : <h1>Fetching</h1>}

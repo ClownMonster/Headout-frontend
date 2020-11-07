@@ -12,7 +12,7 @@ const Dashboardvendor = () => {
     <div className="leftBar">
       <div className="name"><h3>Generic</h3></div>
       <div className="dashboardBtn">
-        <h3 onclick={} >Dashboard</h3>
+        <h3 >Dashboard</h3>
       </div>
       <div className="ordersBtn">
       <h3>Orders</h3>

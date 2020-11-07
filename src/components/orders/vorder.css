@@ -87,7 +87,13 @@
     
 }
 
+.vlogo{
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
 
 .vlogo > img{
     width: 10rem;
+    cursor: pointer;
+
 }

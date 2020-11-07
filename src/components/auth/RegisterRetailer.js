@@ -32,7 +32,7 @@ const RegisterRetailer = () => {
     const signUp = () => { 
          setForm(true)
          let id = Math.floor(100000 + Math.random() * 900000)
-         setRegisterData({ ...registerData, vendorId : id.toString() })
+         setRegisterData({ ...registerData, vendorId : id })
    } 
 
    const signIn = () => { 
@@ -45,23 +45,18 @@ const RegisterRetailer = () => {
     const onRegister = e => setRegisterData({ ...registerData, [e.target.name]: e.target.value })
     const onSingIn = e => setSignInData({ ...signInData, [e.target.name]: e.target.value })
 
-    const onRegisterSubmit = async (e) =>{
-      e.preventDefault();
-      console.log(registerData)
-      try{
-        const config = {
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      }
-      const body = JSON.stringify(registerData);
-        const res  = await axios.post("https://hackout.herokuapp.com/signup",body,config) 
+    const onRegisterSubmit =async (e)  =>{
+      try {
+        e.preventDefault();
+        const config = {headers: {
+          'content-type': 'application/json'
+        }}
+        const res  = await axios.post("http://6c5b0f97be08.ngrok.io/signup",registerData,config)
         console.log(res)
       }catch(err){
-        console.log(err)
-      }
-    }
-
+        console.error(err)
+      }}
+  
 
     const onSignInSubmit = e => {
       e.preventDefault();

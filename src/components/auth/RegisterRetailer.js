@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import registerImg from './images/img1.svg';
 import signInImg from "./images/img2.svg";
 import "./register.css"
+import axios from "axios"
 
 
 
@@ -31,7 +32,7 @@ const RegisterRetailer = () => {
     const signUp = () => { 
          setForm(true)
          let id = Math.floor(100000 + Math.random() * 900000)
-         setRegisterData({ ...registerData, vendorId : id })
+         setRegisterData({ ...registerData, vendorId : id.toString() })
    } 
 
    const signIn = () => { 
@@ -44,16 +45,23 @@ const RegisterRetailer = () => {
     const onRegister = e => setRegisterData({ ...registerData, [e.target.name]: e.target.value })
     const onSingIn = e => setSignInData({ ...signInData, [e.target.name]: e.target.value })
 
-    const onRegisterSubmit = e =>{
+    const onRegisterSubmit = async (e) =>{
       e.preventDefault();
       console.log(registerData)
-      fetch('http://hackout.herokuapp.com/signup', { 
-        method: "POST",
-        body: JSON.stringify(registerData), 
-        headers:{ "Content-Type": "application/json" } })
-        .then(res => res.json())
-        .catch(error => console.error("Error:", error))
-        .then(response => console.log("Success:", response)); } 
+      try{
+        const config = {
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      }
+      const body = JSON.stringify(registerData);
+        const res  = await axios.post("https://hackout.herokuapp.com/signup",body,config) 
+        console.log(res)
+      }catch(err){
+        console.log(err)
+      }
+    }
+
 
     const onSignInSubmit = e => {
       e.preventDefault();

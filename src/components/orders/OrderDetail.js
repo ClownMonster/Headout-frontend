@@ -1,32 +1,9 @@
-import React, {useEffect,useState} from "react";
+import React from "react";
 import {Link} from 'react-router-dom';
-
 import './vorder.css'
 import vlogo from './vcart.svg'
 
-
-const VendorOder = ()=>{
-
-  const [result,setResult]  = useState([])
-  const [show,setShow] = useState(false)
-  
-
-  useEffect( ()=>{
-    fetch('http://hackout.herokuapp.com/getAllOrders?vendorId=2334333',{
-    }).then(
-      res => res.json()
-    ).then(data => {
-    console.log(data) 
-    setResult(data)
-    setShow(true) })
-    .catch(
-      err=> console.error(err)
-    )
-    },[] )
-
-
-
-   
+const OrderDetail = ()=>{
   return (
     <div className="outer">
     <div className="leftBar">
@@ -50,11 +27,10 @@ const VendorOder = ()=>{
     </div>
     <div className="mainArea">
         <div className="vlogo"><img src={vlogo}  alt="vlogo" /></div>
-  <div>{ show && result.length > 0 ? result.map(item =>  <h1>{item.orderId}</h1>) : ""}</div>
     </div>
     </div>
   );
 
 }
 
-export default VendorOder;
+export default OrderDetail;

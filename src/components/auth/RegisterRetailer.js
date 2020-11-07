@@ -4,11 +4,12 @@ import signInImg from "./images/img2.svg";
 import "./register.css"
 
 
+
 const RegisterRetailer = () => {
 
     const [registerData,setRegisterData] = useState({
       vendorName:"",
-      vendorId: null,
+      vendorId: "",
       vendorGovRegsNumber: "",
       vendorPassword:"",
       vendorAddress:"",
@@ -16,9 +17,10 @@ const RegisterRetailer = () => {
       vendorNumber: ""
     }) 
 
-    // const [signInData,setSignIndata] = useState({
-      
-    // })
+    const [signInData,setSignInData] = useState({
+      vendor_id  : "",
+      password : ""
+    })
 
     const [form,setForm] = useState(false);
     
@@ -28,18 +30,27 @@ const RegisterRetailer = () => {
     }
     const signUp = () => { 
          setForm(true)
+         let id = Math.floor(100000 + Math.random() * 900000)
+         setRegisterData({ ...registerData, vendorId : id })
    } 
 
    const signIn = () => { 
      setForm(false)
     }
-    const { vendorName, vendorEmail, vendorPassword, vendorGovRegsNumber,vendorNumber } = registerData;
+    const { vendorName,vendorAddress, vendorEmail, vendorPassword, vendorGovRegsNumber,vendorNumber } = registerData;
+    const {vendor_id , password} = signInData
+
     const onRegister = e => setRegisterData({ ...registerData, [e.target.name]: e.target.value })
-    // const onSingIn = e => setSignInData({ ...formData, [e.target.name]: e.target.value })
+    const onSingIn = e => setSignInData({ ...signInData, [e.target.name]: e.target.value })
 
     const onRegisterSubmit = e =>{
-      e.preventDefault()
+      e.preventDefault();    
       console.log(registerData)
+    }
+
+    const onSignInSubmit = e => {
+      e.preventDefault();
+      console.log(signInData)
     }
      
 
@@ -47,20 +58,20 @@ const RegisterRetailer = () => {
     <div className={divClass.join(" ")}>
       <div className="forms-container">
         <div className="signin-signup">
-          <form action="#" className="sign-in-form">
+          <form onSubmit = {e => onSignInSubmit(e)} className="sign-in-form">
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
-              <input type="text" placeholder="Vendor Id" />
+              <input  value={vendor_id} onChange={e => onSingIn(e)} name ="vendor_id" type="text" placeholder="Vendor Id" />
             </div>
             <div className="input-field">
               <i className="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input value={password} onChange={e => onSingIn(e)} name ="password" type="password" placeholder="Password" />
             </div>
-            <input type="submit" value="Login" className="btn solid" />
+            <input type="submit" value="Sign In" className="btn solid" />
           </form>
 
-          <form action="#" onSubmit={e => onRegisterSubmit(e)} className="sign-up-form">
+          <form  onSubmit={e => onRegisterSubmit(e)} className="sign-up-form">
             <h2 className="title">Sign up</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
@@ -75,12 +86,15 @@ const RegisterRetailer = () => {
               <input value={vendorEmail} onChange={e => onRegister(e)} name ="vendorEmail" type="email" placeholder="Email" />
             </div>
             <div className="input-field">
-              <i className="fas fa-lock"></i>
-              <input value={vendorPassword} onChange={e => onRegister(e)} name ="vendorPassword" type="password" placeholder="Password" />
-            </div>
-            <div className="input-field">
               <i className="fas fa-user"></i>
               <input value={vendorNumber} onChange={e => onRegister(e)} name ="vendorNumber" type="text" placeholder="Mobile Number" />
+            </div>
+            <div >
+              <textarea onChange={e => onRegister(e)} value={vendorAddress} placeholder= "Address" type="text" name="vendorAddress" cols="20" rows="6"></textarea>
+            </div>
+            <div className="input-field">
+              <i className="fas fa-lock"></i>
+              <input value={vendorPassword} onChange={e => onRegister(e)} name ="vendorPassword" type="password" placeholder="Password" />
             </div>
             <input  type="submit" className="btn" value="Sign up" />
           </form>

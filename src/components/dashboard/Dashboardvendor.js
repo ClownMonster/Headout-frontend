@@ -44,10 +44,6 @@ const Dashboardvendor = () => {
           <h3>Number of Orders Processed : </h3>
           <h3>18</h3>
         </div>
-        <div className="orderdecline">
-          <h3>Number of Orders Rejected : </h3>
-          <h3>8</h3>
-        </div>
       </div>
     </div>
     </div>

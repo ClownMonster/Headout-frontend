@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // component imports
 
-import Register from "./components/auth/Register";
-import Login from "./components/auth/Login";
+import RegisterCostumer from "./components/auth/RegisterCostumer";
+import RegisterRetailer from "./components/auth/RegisterRetailer";
 import Dashboardvendor from "./components/dashboard/Dashboardvendor";
 import Dashboardcustomer from "./components/dashboard/Dashboardcustomer";
 import Landing from "./components/layout/Landing"
@@ -18,8 +18,8 @@ function App() {
       <Route exact path='/' component={Landing} />
       <section >
         <Switch>
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/register-retailer" component={RegisterRetailer} />
+          <Route exact path="/register-customer" component={RegisterCostumer} />
           <Route exact path="/dashboard-vendor" component={Dashboardvendor} />
           <Route exact path="/dashboard-customer" component={Dashboardcustomer} />
 

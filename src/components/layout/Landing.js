@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './landing.css';
 import logo from './landing.svg'
 
@@ -10,10 +11,9 @@ const Landing = () => {
           <h3>Hello!<br/> Welome to generic</h3>
           <img className="logo" src={logo} alt="Logo" />
           <div className="btns">
-            <button className="for-customer">For Customer</button>
-            <button className="for-vendor">For Vendor</button>
+           <Link to="/register-customer"><button className="for-customer">For Customer</button></Link>
+           <Link to="/register-retailer"><button className="for-vendor">For Vendor</button></Link> 
           </div>
-          
           </div>
       </div>
     </div>

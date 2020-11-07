@@ -4,7 +4,7 @@ import signInImg from "./images/img2.svg";
 import "./register.css"
 
 
-const Register = () => {
+const RegisterCostumer = () => {
 
     const [form,setForm] = useState(false);
     let divClass = ["container1"];
@@ -101,4 +101,4 @@ const Register = () => {
   );
 }
 
-export default Register;
+export default RegisterCostumer;

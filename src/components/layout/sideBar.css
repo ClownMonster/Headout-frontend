@@ -173,6 +173,14 @@
     margin-left: 1rem;
 }
 
+.hbtn{
+    background: transparent;
+    outline: none !important;
+    border:none !important;
+    color: white;
+    font-size: 19px;
+
+}
 
 
 @media screen and (max-width:870px){
@@ -182,6 +190,19 @@
         width: 18rem !important;
         float: right;
     }
+
+
+.hbtn{
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    outline: none !important;
+    border:none !important;
+    color: white;
+    font-size: 19px;
+
+}
+
 
 
 

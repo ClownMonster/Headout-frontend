@@ -24,10 +24,7 @@ const SideBar = ({history}) => {
           </Link>
       </div>
       <div className="Signout">
-       <Link className="h" to='/'>
-            Signout
-          </Link>
-        <button className="h" onClick={handleLogout}>logout</button>
+      <button className="hbtn" onClick={handleLogout}>logout</button>
       </div>
       </div>
     </Fragment>

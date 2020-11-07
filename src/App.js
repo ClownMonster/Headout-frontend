@@ -11,6 +11,7 @@ import Dashboardcustomer from "./components/dashboard/Dashboardcustomer";
 import Landing from "./components/layout/Landing"
 import VendorOrders from './components/orders/VendorOrder'
 import CustomerOrders from './components/orders/CustomerOrder'
+import OrderDetail from "./components/orders/OrderDetail"
 
 
 function App() {
@@ -26,8 +27,7 @@ function App() {
           <Route exact path="/dashboard-customer" component={Dashboardcustomer} />
           <Route exact path="/customer-orders" component={CustomerOrders} />
           <Route exact path="/vendor-orders" component={VendorOrders} />
-
-
+          <Route exact path="/:id" component={OrderDetail} /> 
         </Switch>
       </section>
     </Fragment>

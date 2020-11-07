@@ -37,11 +37,11 @@ const Dashboardvendor = () => {
       <div className="dashlogo"><img src={dashLogo} alt="dashLogo" /></div>
       <div className="cards">
         <div className="orderCard">
-          <h3>Number of Orders Waiting : </h3>
+          <h3>Waiting Orders  </h3>
           <h3>20</h3>
         </div>
         <div className="orderProcessed">
-          <h3>Number of Orders Processed : </h3>
+          <h3> Processed Orders </h3>
           <h3>18</h3>
         </div>
       </div>

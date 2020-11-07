@@ -9,22 +9,12 @@ const VendorOder = ()=>{
 
   const {order,setOrder}  = useState ([])
 
-  useEffect(async ()=>{
-  //   const config = {
-  //     headers: {
-  //         'Content-Type': 'application/json',
-  //         "Access-Control-Allow-Origin": "*",
-  //         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-  //     }
-  // }
-  //   const res = await axios.get("https://hackout.herokuapp.com/getAllOrders?vendorId=2334333",config);
-    fetch('https://hackout.herokuapp.com/getAllOrders?vendorId=2334333', {
-      method: 'GET', 
-      headers: { 'Content-Type': 'application/json' }, 
-      mode: 'cors'
+  useEffect( ()=>{
+    fetch('http://hackout.herokuapp.com/getAllOrders?vendorId=2334333',{
     }).then(
-      res => console.log(res)
-    ).catch(
+      res => res.json()
+    ).then(data => setOrder(data) )
+    .catch(
       err=> console.error(err)
     )
     },[])

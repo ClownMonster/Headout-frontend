@@ -1,6 +1,7 @@
 import React from "react";
 // import Navbar from '../layout/Navbar'
 import './vendor.css';
+import {Link} from 'react-router-dom';
 import dashLogo from './dashboard.svg';
 
 
@@ -12,13 +13,19 @@ const Dashboardvendor = () => {
     <div className="leftBar">
       <div className="name"><h3>Generic</h3></div>
       <div className="dashboardBtn">
-        <h3 >Dashboard</h3>
+        <Link className="h" to='/dashboard-vendor'>
+            Dashboard
+          </Link>
       </div>
       <div className="ordersBtn">
-      <h3>Orders</h3>
+      <Link className="h" to='/vendor-orders'>
+            Orders
+          </Link>
       </div>
       <div className="Signout">
-      <h3>Signout</h3>
+       <Link className="h" to='/'>
+            Signout
+          </Link>
       </div>
     
     </div>

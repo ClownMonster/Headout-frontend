@@ -37,7 +37,7 @@ const RegisterCostumer = () => {
             <h2 className="title">Sign in</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
-              <input type="text" placeholder="Vendor Id" />
+              <input type="text" placeholder="Customer Id" />
             </div>
             <div className="input-field">
               <i className="fas fa-lock"></i>
@@ -50,12 +50,9 @@ const RegisterCostumer = () => {
             <h2 className="title">Sign up</h2>
             <div className="input-field">
               <i className="fas fa-user"></i>
-              <input type="text" placeholder="Vendor Name" />
+              <input type="text" placeholder="Customer Name" />
             </div>
-            <div className="input-field">
-              <i className="fas fa-user"></i>
-              <input type="text" placeholder="Govt Reg No" />
-            </div>
+
             <div className="input-field">
               <i className="fas fa-envelope"></i>
               <input type="email" placeholder="Email" />

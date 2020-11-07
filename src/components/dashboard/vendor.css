@@ -18,24 +18,19 @@
 
 
 .leftBar{
-    width: 20%;
+    width: 16%;
     height: 100%;
     background: linear-gradient(to right, #1A237E,#9575CD);
     display: flex;
-    align-self: left;
-    justify-content: left;
-    align-self: left;
+    flex-direction: column;
 }
 
 .mainArea{
-    width: 80%;
+    width: 84%;
     height: 100%;
     background:white;
     display: flex;
-    align-self: left;
-    float: right;
-    justify-content: left;
-    align-self: left;
+    flex-direction: column;
 }
 
 .name{
@@ -51,4 +46,87 @@
 .name > h3{
     cursor: pointer;
     transition: 3s ease-in-out;
+    font-size: 30px;
+}
+
+.dashboardBtn, .ordersBtn, .Signout{
+    display: flex;
+    margin-left: 5%;
+   
+    justify-content: center;
+    width: 90%;
+    margin-top: 2rem;
+    color: white;
+    font-family: 'Roboto Slab';
+    
+    
+}
+
+.dashboardBtn > h3, .ordersBtn>h3, .Signout>h3{
+    cursor: pointer;
+    transition: 3s ease-in-out;
+    font-size: 18px;
+}
+
+
+.welcomeHeadText{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: white;
+    font-size: 20px;
+}
+
+.welcomeHeadText > h3{
+    margin-top: 1rem;
+    font-size: 23px;
+    font-family: 'Roboto Slab';
+    font-weight: bold;
+    
+}
+
+.dashlogo > img{
+    width: 20rem;
+    float: right;
+}
+
+.cards{
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    height: 40%;
+    flex-direction:row;
+}
+
+.orderCard, .orderProcessed, .orderdecline{
+    background: linear-gradient(to right, #1A237E,#9575CD);
+    width: 27%;
+    color: white;
+    height: 79%;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px 2px black;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+
+}
+
+.orderCard:hover, .orderProcessed:hover, .orderdecline:hover{
+    width: 28%;
+    height: 80%;
+    transition: 0.5s;
+    background: linear-gradient(to right bottom,#1A237E,#9575CD);
+
+}
+
+.orderCard > h3, .orderProcessed > h3, .orderdecline >h3{
+    display: flex;
+    justify-content: center;
+    font-size: 19px;
+    font-family: 'Roboto Slab';
+    font-weight: bold;
 }

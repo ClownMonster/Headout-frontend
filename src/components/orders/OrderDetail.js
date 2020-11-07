@@ -1,8 +1,8 @@
 import React, { useEffect ,useState} from "react";
-import {Link} from 'react-router-dom';
 import './vorder.css'
 import axios from "axios"
 import vlogo from './vcart.svg'
+import SideBar from "./../layout/SideBar"
 
 const OrderDetail = ({match})=>{
   const [order,setOrder ] = useState({})
@@ -24,25 +24,7 @@ const OrderDetail = ({match})=>{
   })
   return (
     <div className="outer">
-    <div className="leftBar">
-      <div className="name"><h3>Generic</h3></div>
-      <div className="dashboardBtn">
-        <Link className="h" to='/dashboard-vendor'>
-            Dashboard
-          </Link>
-      </div>
-      <div className="ordersBtn">
-      <Link className="h" to='/vendor-orders'>
-            Orders
-          </Link>
-      </div>
-      <div className="Signout">
-       <Link className="h" to='/'>
-            Signout
-          </Link>
-      </div>
-    
-    </div>
+     <SideBar/>
     <div className="mainArea">
         <div className="vlogo"><img src={vlogo}  alt="vlogo" /></div>
         {show ?  <div>

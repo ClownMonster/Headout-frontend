@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import registerImg from './images/img1.svg';
 import signInImg from "./images/img2.svg";
 import "./register.css"
@@ -24,6 +24,14 @@ const RegisterRetailer = () => {
     })
 
     const [form,setForm] = useState(false);
+
+
+    useEffect(() => {
+      const loggedInUser = localStorage.getItem("log");
+      if (loggedInUser) {
+        console.log("user logged in") 
+      }
+    }, []);
     
     let divClass = ["container1"];
     if(form) {
@@ -53,7 +61,6 @@ const RegisterRetailer = () => {
           'content-type': 'application/json'
         }}
         const res  = await axios.post("https://hackout.herokuapp.com/signup",registerData,config)
-        console.log(res)
       }catch(err){
         console.error(err)
       }}
@@ -71,6 +78,10 @@ const RegisterRetailer = () => {
         }}
         const res  = await axios.post("https://hackout.herokuapp.com/login",signInData,config)
         console.log(res)
+        if(res.data.success === true){
+          localStorage.setItem('VendorId',signInData.vendor_id)
+          localStorage.setItem('log', true)
+        }  
       }catch(err){
         console.error(err)
       }

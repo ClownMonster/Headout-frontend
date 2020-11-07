@@ -1,8 +1,7 @@
 import React,{useEffect,useState} from "react";
-// import Navbar from '../layout/Navbar'
 import './vendor.css';
-import {Link} from 'react-router-dom';
 import dashLogo from './dashboard.svg';
+import SideBar from "../layout/SideBar";
 
 
 
@@ -30,25 +29,7 @@ const Dashboardvendor = () => {
 
   return (
     <div className="outer">
-    <div className="leftBar">
-      <div className="name"><h3>Generic</h3></div>
-      <div className="dashboardBtn">
-        <Link className="h" to='/dashboard-vendor'>
-            Dashboard
-          </Link>
-      </div>
-      <div className="ordersBtn">
-      <Link className="h" to='/vendor-orders'>
-            Orders
-          </Link>
-      </div>
-      <div className="Signout">
-       <Link className="h" to='/'>
-            Signout
-          </Link>
-      </div>
-    
-    </div>
+   <SideBar/>
     <div className="mainArea">
       <div className="welcomeHeadText">
         <h3>Hello! Mohan Welcome </h3>

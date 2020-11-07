@@ -33,11 +33,11 @@ const OrderDetail = ({match})=>{
         <div><h1 className="tt">Phone Number : {order.orderPhoneNo}</h1></div>
         { order.orderProcessed === false && <div><h1 className="tt">Status: Not Processed</h1></div>}
         { order.orderProcessed === true && <div><h1 className="tt">Status: Processed</h1></div> }
-        <div><h1 className="tt"></h1></div>
-        <div>
-  {order.orderDetails.length > 0 ? order.orderDetails.map(item => <div key={item.itemName}><h1>{item.itemName}</h1><h1>{item.itemQty}</h1></div>) : <h1>No items to display</h1>}
+  {order.orderDetails.length > 0 ? order.orderDetails.map(item => <div className="itemd">
+  <h1 className="tt">{item.itemName} : {item.itemQty} </h1>
+  
+  </div>) : <h1 className="tt">No items to display</h1>}
         </div>
-        </div> 
         : <h1>Fetching</h1>}
         
         </div>

@@ -304,12 +304,12 @@ form.sign-in-form {
   }
 
   .panel h3 {
-    font-size: 1.2rem;
+    font-size: 16px !important;
   }
 
   .panel p {
     font-size: 0.7rem;
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 !important;
   }
 
   .btn.transparent {
@@ -354,6 +354,18 @@ form.sign-in-form {
     top: 5%;
     transform: translate(-50%, 0);
   }
+
+  .input-field{
+    height: 2.6rem !important;
+    font-size: 16px !important;
+    width: 80%;
+
+  }
+
+  .input-field > input{
+    font-size: 16px !important;
+  }
+
 }
 
 @media (max-width: 570px) {

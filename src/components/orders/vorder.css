@@ -155,6 +155,7 @@
     width: 70%;
     margin-bottom: 2rem;
     background: linear-gradient(to right bottom,#1A237E,#9575CD);
+    background: #1d257a;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -171,4 +172,24 @@
 
 .in > div{
     margin-left: 1rem;
+}
+
+
+.viewBtn{
+    display: flex;
+    justify-content: center;
+    color: white;
+    outline: none;
+    text-decoration: none;
+    font-family: 'Roboto Slab';
+    font-weight: bolder;  
+    box-shadow: none; 
+}
+
+
+.viewBtn:hover{
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
 }

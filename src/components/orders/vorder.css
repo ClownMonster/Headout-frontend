@@ -193,3 +193,32 @@
     color: white;
     text-decoration: none;
 }
+
+
+
+@media screen and (max-width:870px){
+
+    .in{
+        padding:0.2rem;
+        width: 90%;
+        margin-bottom: 2rem;
+        padding: .5rem;
+        background: linear-gradient(to right bottom,#1A237E,#9575CD);
+        background: #1d257a;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        color: white;
+        box-shadow: 2px 2px 2px 2px black;
+        border-radius: 9px;
+        font-size: 15px !important; 
+        font-family: 'Roboto Slab';
+        cursor: pointer;
+    
+        
+    }
+    
+
+
+}

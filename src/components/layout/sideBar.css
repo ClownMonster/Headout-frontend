@@ -172,3 +172,18 @@
 .in > div{
     margin-left: 1rem;
 }
+
+
+
+@media screen and (max-width:870px){
+
+
+    .dashlogo > img{
+        width: 18rem !important;
+        float: right;
+    }
+
+
+
+}
+

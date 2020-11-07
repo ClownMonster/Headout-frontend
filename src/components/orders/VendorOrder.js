@@ -50,11 +50,18 @@ const VendorOder = ()=>{
     </div>
     <div className="mainArea">
         <div className="vlogo"><img src={vlogo}  alt="vlogo" /></div>
-  <div className="orderCardBox">{ show && result.length > 0 ? result.map(item =>  <div className="in" ><h2>Order No:{item.orderId}</h2></div>) : ""}</div>
+  <div className="orderCardBox">{ show && result.length > 0 ? result.map(item => <div className="in">
+
+    <div>order Id: {item.orderId}</div>
+    <div>order status: {item.orderProcessed}</div>
+    <div>from :{item.orderPhoneNo}</div>
+
+  </div>) : ""}</div>
     </div>
     </div>
   );
 
 }
+
 
 export default VendorOder;

@@ -7,6 +7,7 @@ const SideBar = ({history}) => {
 
     const handleLogout = () => {
         localStorage.clear();
+        window.location.replace("/");
       };  
 
   return (

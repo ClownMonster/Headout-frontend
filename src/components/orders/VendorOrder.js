@@ -7,13 +7,18 @@ import Axios from "axios";
 
 const VendorOder = ()=>{
 
-  const {order,setOrder}  = useState ([])
+  const [result,setResult]  = useState([])
+  const [show,setShow] = useState(false)
+  
 
   useEffect( ()=>{
     fetch('http://hackout.herokuapp.com/getAllOrders?vendorId=2334333',{
     }).then(
       res => res.json()
-    ).then(data => setOrder(data) )
+    ).then(data => {
+    console.log(data) 
+    setResult(data)
+    setShow(true) })
     .catch(
       err=> console.error(err)
     )
@@ -45,7 +50,7 @@ const VendorOder = ()=>{
     </div>
     <div className="mainArea">
         <div className="vlogo"><img src={vlogo}  alt="vlogo" /></div>
-
+  <div>{ show && result.length > 0 ? result.map(item =>  <h1>{item.orderId}</h1>) : ""}</div>
     </div>
     </div>
   );

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const CustomerOrder = () =>{
    return(
 
-<h3>vendor oders</h3>
+<h3>Customer oders</h3>
     );
 
 }

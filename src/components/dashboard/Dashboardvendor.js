@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 // import Navbar from '../layout/Navbar'
 import './vendor.css';
 import {Link} from 'react-router-dom';
@@ -7,7 +7,27 @@ import dashLogo from './dashboard.svg';
 
 
 const Dashboardvendor = () => {
+
+
+  const [result,setResult]  = useState([])
+  const [show,setShow] = useState(false)
   
+
+  useEffect( ()=>{
+    fetch('http://hackout.herokuapp.com/getAllOrders?vendorId=2334333',{
+    }).then(
+      res => res.json()
+    ).then(data => {
+    console.log(data) 
+    setResult(data)
+    setShow(true) })
+    .catch(
+      err=> console.error(err)
+    )
+    },[] )
+
+
+
   return (
     <div className="outer">
     <div className="leftBar">

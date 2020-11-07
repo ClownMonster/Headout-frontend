@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from "react";
+import {Redirect} from "react-router-dom";
 import registerImg from './images/img1.svg';
 import signInImg from "./images/img2.svg";
 import "./register.css"
@@ -24,14 +25,24 @@ const RegisterRetailer = () => {
     })
 
     const [form,setForm] = useState(false);
-
+    const [loggedIn ,setLoggedIn] = useState(false)
 
     useEffect(() => {
       const loggedInUser = localStorage.getItem("log");
       if (loggedInUser) {
-        console.log("user logged in") 
+        setLoggedIn(true)
       }
     }, []);
+
+
+      if(loggedIn){
+        return <Redirect to="/dashboard-vendor" />
+      }
+  
+    
+
+
+
     
     let divClass = ["container1"];
     if(form) {
@@ -81,6 +92,7 @@ const RegisterRetailer = () => {
         if(res.data.success === true){
           localStorage.setItem('VendorId',signInData.vendor_id)
           localStorage.setItem('log', true)
+          setLoggedIn(true)
         }  
       }catch(err){
         console.error(err)

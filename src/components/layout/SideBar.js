@@ -2,7 +2,13 @@ import React,{Fragment} from "react";
 import {Link} from "react-router-dom"
 import "./sideBar.css"
 
-const SideBar = () => {
+
+const SideBar = ({history}) => {
+
+    const handleLogout = () => {
+        localStorage.clear();
+      };  
+
   return (
     <Fragment>
     <div className="leftBar">
@@ -21,6 +27,7 @@ const SideBar = () => {
        <Link className="h" to='/'>
             Signout
           </Link>
+        <button className="h" onClick={handleLogout}>logout</button>
       </div>
       </div>
     </Fragment>

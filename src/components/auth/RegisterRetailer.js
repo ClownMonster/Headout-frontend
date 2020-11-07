@@ -48,19 +48,32 @@ const RegisterRetailer = () => {
     const onRegisterSubmit =async (e)  =>{
       try {
         e.preventDefault();
-        const config = {headers: {
+        const config = {
+          headers: {
           'content-type': 'application/json'
         }}
-        const res  = await axios.post("http://6c5b0f97be08.ngrok.io/signup",registerData,config)
+        const res  = await axios.post("https://hackout.herokuapp.com/signup",registerData,config)
         console.log(res)
       }catch(err){
         console.error(err)
       }}
   
 
-    const onSignInSubmit = e => {
+    const onSignInSubmit =async (e) => {
       e.preventDefault();
-      console.log(signInData)
+      try {
+        console.log("hi")
+        console.log(signInData)
+        e.preventDefault();
+        const config = {
+          headers: {
+          'content-type': 'application/json'
+        }}
+        const res  = await axios.post("https://hackout.herokuapp.com/login",signInData,config)
+        console.log(res)
+      }catch(err){
+        console.error(err)
+      }
     }
      
 

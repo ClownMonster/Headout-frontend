@@ -2,27 +2,36 @@ import React,{useEffect,useState} from "react";
 import './vendor.css';
 import dashLogo from './dashboard.svg';
 import SideBar from "../layout/SideBar";
+import axios from "axios"
 
 
 
 const Dashboardvendor = () => {
-
-
-  const [result,setResult]  = useState([])
-  const [show,setShow] = useState(false)
+  const [wait,setWait] = useState(null)
+  const [Processed,setProcessed] = useState(null)
+ 
   
-
-  useEffect( ()=>{
-    fetch('http://hackout.herokuapp.com/getAllOrders?vendorId=2334333',{
-    }).then(
-      res => res.json()
-    ).then(data => {
-    console.log(data) 
-    setResult(data)
-    setShow(true) })
-    .catch(
-      err=> console.error(err)
-    )
+  useEffect(async ()=>{
+    try{
+      let w = 0
+      let p = 0
+      const vendorId = localStorage.getItem("vendorId");
+      const url  = `http://hackout.herokuapp.com/getAllOrders?vendorId=${vendorId}`
+      const res  = await axios.get(url)
+      res.data.forEach(item=>{
+        if (item.orderProcessed){
+          p++
+        }
+        else{
+          w++
+        }
+        setProcessed(p)
+        setWait(w)
+       console.log(w,p)
+      })
+    }catch(err){
+      console.error(err)
+    }
     },[] )
 
 
@@ -32,17 +41,17 @@ const Dashboardvendor = () => {
    <SideBar/>
     <div className="mainArea">
       <div className="welcomeHeadText">
-        <h3>Hello! Mohan Welcome </h3>
+        <h3>Hi! ${} Welcome </h3>
       </div>
       <div className="dashlogo"><img src={dashLogo} alt="dashLogo" /></div>
       <div className="cards">
         <div className="orderCard">
           <h3>Waiting Orders  </h3>
-          <h3>20</h3>
+          <h3>{wait}</h3>
         </div>
         <div className="orderProcessed">
           <h3> Processed Orders </h3>
-          <h3>18</h3>
+        <h3>{Processed}</h3>
         </div>
       </div>
     </div>

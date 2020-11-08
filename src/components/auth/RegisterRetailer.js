@@ -4,6 +4,8 @@ import registerImg from './images/img1.svg';
 import signInImg from "./images/img2.svg";
 import "./register.css"
 import axios from "axios"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -54,6 +56,16 @@ const RegisterRetailer = () => {
      setForm(false)
     }
 
+    const notify = (msg) => toast.info(msg, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+
     const {vendorName,vendorAddress, vendorEmail, vendorPassword, vendorGovRegsNumber,vendorNumber} = registerData;
     const {vendor_id , password} = signInData
 
@@ -67,7 +79,7 @@ const RegisterRetailer = () => {
           headers: {
           'content-type': 'application/json'
         }}
-        const res  = await axios.post("http://a304e7e6341f.ngrok.io/signup",registerData,config)
+        const res  = await axios.post("http://c2105b672d86.ngrok.io/signup",registerData,config)
         if(res.data.success === true){
           localStorage.setItem('vendorId',registerData.vendorId)
           localStorage.setItem('log', true)
@@ -76,20 +88,20 @@ const RegisterRetailer = () => {
         }  
       }catch(err){
         console.error(err)
+        notify("Something went wrong!")
       }}
   
 
     const onSignInSubmit =async (e) => {
       e.preventDefault();
       try {
-        console.log("hi")
         console.log(signInData)
         e.preventDefault();
         const config = {
           headers: {
           'content-type': 'application/json'
         }}
-        const res  = await axios.post("http://a304e7e6341f.ngrok.io/login",signInData,config)
+        const res  = await axios.post("http://c2105b672d86.ngrok.io/login",signInData,config)
         console.log(res)
         if(res.data.success === true){
           localStorage.setItem('vendorId',signInData.vendor_id)
@@ -97,14 +109,29 @@ const RegisterRetailer = () => {
           localStorage.setItem('log', true)
           setLoggedIn(true)
         }  
+        else{
+          notify("Invalid Password!")
+        }
       }catch(err){
         console.error(err)
+        notify("Invalid Credentials!")
       }
     }
      
 
   return (
     <div className={divClass.join(" ")}>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+    />
       <div className="forms-container">
         <div className="signin-signup">
           <form onSubmit = {e => onSignInSubmit(e)} className="sign-in-form">

@@ -3,6 +3,8 @@ import './orderdetails.css'
 import axios from "axios"
 import vlogo from './vcart.svg'
 import SideBar from "./../layout/SideBar"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const OrderDetail = ({match})=>{
   const [order,setOrder ] = useState({})
@@ -25,16 +27,38 @@ const OrderDetail = ({match})=>{
     }
   },[])
 
+  const notify = (msg) => toast.info(msg, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+
   const dispatch =async (no) =>{
     const body = `your order with Order ID ${order_id} has been dispatched`
     const sms_url = `https://hackout-helpline.herokuapp.com/sendsms?body=${body}&number=${no}`
     const response  = await axios.get(sms_url)
+    notify("Order Has Been Dispatched")
     console.log(response.data)
   }
   return (
     <div className="outer">
      <SideBar/>
     <div className="mainArea">
+    <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+    />
         <div className="vlogo"><img src={vlogo}  alt="vlogo" /></div>
         <div className="orderDetailCard">{show ?  <div className="cd">
         <div><h1 className="tt">Order Id : {order.orderId}</h1></div>

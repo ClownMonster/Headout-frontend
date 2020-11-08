@@ -9,6 +9,7 @@ import Dashboardvendor from "./components/dashboard/Dashboardvendor";
 import Landing from "./components/layout/Landing"
 import VendorOrders from './components/orders/VendorOrder'
 import OrderDetail from "./components/orders/OrderDetail"
+import PrivateRoute from "./components/routing/PrivateRoute"
 
 
 function App() {
@@ -19,9 +20,9 @@ function App() {
       <section >
         <Switch>
           <Route exact path="/register-vendor" component={RegisterRetailer} />
-          <Route exact path="/dashboard-vendor" component={Dashboardvendor} />
-          <Route exact path="/vendor-orders" component={VendorOrders} />
-          <Route exact path="/:id" component={OrderDetail} /> 
+          <PrivateRoute exact path="/dashboard-vendor" component={Dashboardvendor} />
+          <PrivateRoute exact path="/vendor-orders" component={VendorOrders} />
+          <PrivateRoute exact path="/:id" component={OrderDetail} /> 
         </Switch>
       </section>
     </Fragment>

@@ -79,7 +79,7 @@ const RegisterRetailer = () => {
           headers: {
           'content-type': 'application/json'
         }}
-        const res  = await axios.post("http://c2105b672d86.ngrok.io/signup",registerData,config)
+        const res  = await axios.post("http://3dc0eb9837a9.ngrok.io/signup",registerData,config)
         if(res.data.success === true){
           localStorage.setItem('vendorId',registerData.vendorId)
           localStorage.setItem('log', true)
@@ -101,7 +101,7 @@ const RegisterRetailer = () => {
           headers: {
           'content-type': 'application/json'
         }}
-        const res  = await axios.post("http://c2105b672d86.ngrok.io/login",signInData,config)
+        const res  = await axios.post("http://3dc0eb9837a9.ngrok.io/login",signInData,config)
         console.log(res)
         if(res.data.success === true){
           localStorage.setItem('vendorId',signInData.vendor_id)
@@ -182,7 +182,7 @@ const RegisterRetailer = () => {
         <div className="panel left-panel">
           <div className="content">
             <h3>New here ?</h3>
-            <button onClick = {() => signUp()} className="btn transparent" id="sign-up-btn">
+            <button onClick = {() => signUp()}  style={{margin : "1rem"}} className="btn transparent" id="sign-up-btn">
               Sign up
             </button>
           </div>

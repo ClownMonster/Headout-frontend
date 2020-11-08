@@ -71,6 +71,7 @@ const RegisterRetailer = () => {
         if(res.data.success === true){
           localStorage.setItem('vendorId',registerData.vendorId)
           localStorage.setItem('log', true)
+          localStorage.setItem("VendorName",res.data.vendorName )
           setLoggedIn(true)
         }  
       }catch(err){
@@ -92,6 +93,7 @@ const RegisterRetailer = () => {
         console.log(res)
         if(res.data.success === true){
           localStorage.setItem('vendorId',signInData.vendor_id)
+          localStorage.setItem("VendorName",res.data.vendorName )
           localStorage.setItem('log', true)
           setLoggedIn(true)
         }  
